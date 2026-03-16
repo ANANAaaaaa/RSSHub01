@@ -1,20 +1,14 @@
 {
     "$schema": "https://openapi.vercel.sh/vercel.json",
     "version": 2,
-    "builds": [
-        {
-            "src": "src/server.mjs",
-            "use": "@vercel/node"
+    "build": {
+        "env": {
+            "NODE_VERSION": "20.x"
         }
-    ],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "src/server.mjs"
-        }
-    ],
+    },
     "functions": {
         "src/server.mjs": {
+            "runtime": "nodejs20.x",
             "includeFiles": "src/templates/**/*.art"
         }
     }
